@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="SolarGradCap" parent="@style/_SolarGradCap"/>
+
+  <style name="_SolarGradCap" parent="Theme.AppCompat.Light">
+
+    <item name="android:editTextStyle">@style/EditTextSolarGradCap</item>
+
+    <item name="android:textColorHighlight">#99ff8800</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewSolarGradCap</item>
+
+    <item name="android:checkboxStyle">@style/CheckBoxSolarGradCap</item>
+
+    <item name="android:radioButtonStyle">@style/RadioButtonSolarGradCap</item>
+
+    <item name="android:buttonStyle">@style/ButtonSolarGradCap</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonSolarGradCap</item>
+
+    <item name="android:spinnerStyle">@style/SpinnerSolarGradCap</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemSolarGradCap</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarSolarGradCap</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarSolarGradCap</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBarSolarGradCap</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigSolarGradCap</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallSolarGradCap</item>
+
+    <item name="android:buttonStyleToggle">@style/ToggleSolarGradCap</item>
+
+    <item name="android:listViewStyle">@style/ListViewSolarGradCap</item>
+
+    <item name="android:listViewWhiteStyle">@style/ListViewSolarGradCap.White</item>
+
+    <item name="android:spinnerItemStyle">@style/SpinnerItemSolarGradCap</item>
+
+  </style>
+
+</resources>
