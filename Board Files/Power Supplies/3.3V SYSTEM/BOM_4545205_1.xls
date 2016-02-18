@@ -1,6 +1,0 @@
-Part	Manufacturer	Part Number	Quantity	Price	Attribute 1 Name	Attribute 1 Value	Attribute 2 Name	Attribute 2 Value	Attribute 3 Name	Attribute 3 Value	Footprint
-"CvinA"	"AVX"	"08053C104KAT2A"	"1"	"0.01"	""	""	""	""	""	""	"0805"
-"Cin"	"MuRata"	"GRM31CR61A226KE19L"	"1"	"0.08"	""	""	""	""	""	""	"1206_190"
-"Cout"	"MuRata"	"GRM31CR60J476ME19L"	"1"	"0.12"	""	""	""	""	""	""	"1206_190"
-"L1"	"TDK"	"MLP2520K1R0ST"	"1"	"0.14"	"L"	"1uH"	"DCR"	"0.06Ohm"	"IDC"	"2.3A"	"MLP2520K-M"
-"U1"	"Texas Instruments"	"TPS63021DSJR"	"1"	"1.3"	""	""	""	""	""	""	"R-PVSON-N14"
