@@ -40,7 +40,7 @@ int main(void)
 				for (i = 0; i < 4; i++) {
 					SPI_masterTransmit(0x00); //Start frame
 				}
-				for (i = 0; i < 30; i++) {
+				for (i = 0; i < 30; i+=3) {
 					SPI_masterTransmit(0xFF); //Full brightness
 					SPI_masterTransmit(0xFF); //Blue
 					SPI_masterTransmit(0x00); //No green
@@ -55,7 +55,7 @@ int main(void)
 				for (i = 0; i < 4; i++) {
 					SPI_masterTransmit(0x00); //Start frame
 				}
-				for (i = 0; i < 30; i++) {
+				for (i = 0; i < 30; i+=3) {
 					SPI_masterTransmit(0xFF); //Full brightness
 					SPI_masterTransmit(0x00); //No Blue
 					SPI_masterTransmit(0xFF); //Green
@@ -70,7 +70,7 @@ int main(void)
 				for (i = 0; i < 4; i++) {
 					SPI_masterTransmit(0x00); //Start frame
 				}
-				for (i = 0; i < 30; i++) {
+				for (i = 0; i < 30; i+=3) {
 					SPI_masterTransmit(0xFF); //Full brightness
 					SPI_masterTransmit(0x00); //No blue
 					SPI_masterTransmit(0x00); //No green
