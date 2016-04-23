@@ -80,6 +80,22 @@ int main(void)
 					SPI_masterTransmit(0xFF); //End frame
 				}
 				break;
+				case 'N':
+				//LED Pattern None
+				for (i = 0; i < 4; i++) {
+					SPI_masterTransmit(0x00); //Start frame
+				}
+				for (i = 0; i < 30; i+=3) {
+					SPI_masterTransmit(0x00); //Full brightness
+					SPI_masterTransmit(0x00); //Blue
+					SPI_masterTransmit(0x00); //No green
+					SPI_masterTransmit(0x00); //No red
+				}
+				for (i = 0; i < 4; i++) {
+					SPI_masterTransmit(0xFF); //End frame
+				}
+				break;
+					
 				case 'P':
 				//Phone charging
 				PORTD ^= (1<<7);
