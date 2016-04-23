@@ -22,6 +22,8 @@ int main(void)
 	DDRD |= (1<<7);
 	PORTD |= (1<<6);
 	PORTD |= (1<<7);
+
+	int lightsOn = 0;
 	
     while (1) 
     {
@@ -36,48 +38,102 @@ int main(void)
 			//	IF CHARACTER RECEIVED, SEE WHAT IT IS
 			switch(rx) {
 				case 'A':
-				//LED Pattern A
-				for (i = 0; i < 4; i++) {
+				if (lightsOn) { //Turn lights off
+					for (i = 0; i < 4; i++) {
 					SPI_masterTransmit(0x00); //Start frame
-				}
-				for (i = 0; i < 30; i+=3) {
-					SPI_masterTransmit(0xFF); //Full brightness
-					SPI_masterTransmit(0xFF); //Blue
-					SPI_masterTransmit(0x00); //No green
-					SPI_masterTransmit(0x00); //No red
-				}
-				for (i = 0; i < 4; i++) {
-					SPI_masterTransmit(0xFF); //End frame
+					}
+					for (i = 0; i < 30; i+=3) {
+						SPI_masterTransmit(0x00); //No brightness
+						SPI_masterTransmit(0x00); //No Blue
+						SPI_masterTransmit(0x00); //No green
+						SPI_masterTransmit(0x00); //No red
+					}
+					for (i = 0; i < 4; i++) {
+						SPI_masterTransmit(0xFF); //End frame
+					}
+					lightsOn = 0;
+					break;
+				} else {
+					//LED Pattern A
+					for (i = 0; i < 4; i++) {
+						SPI_masterTransmit(0x00); //Start frame
+					}
+					for (i = 0; i < 30; i+=3) {
+						SPI_masterTransmit(0xFF); //Full brightness
+						SPI_masterTransmit(0xFF); //Blue
+						SPI_masterTransmit(0x00); //No green
+						SPI_masterTransmit(0x00); //No red
+					}
+					for (i = 0; i < 4; i++) {
+						SPI_masterTransmit(0xFF); //End frame
+					}
+					lightsOn = 1;
 				}
 				break;
 				case 'B':
-				//LED Pattern B
-				for (i = 0; i < 4; i++) {
+				if (lightsOn) { //Turn lights off
+					for (i = 0; i < 4; i++) {
 					SPI_masterTransmit(0x00); //Start frame
-				}
-				for (i = 0; i < 30; i+=3) {
-					SPI_masterTransmit(0xFF); //Full brightness
-					SPI_masterTransmit(0x00); //No Blue
-					SPI_masterTransmit(0xFF); //Green
-					SPI_masterTransmit(0x00); //No red
-				}
-				for (i = 0; i < 4; i++) {
-					SPI_masterTransmit(0xFF); //End frame
+					}
+					for (i = 0; i < 30; i+=3) {
+						SPI_masterTransmit(0x00); //No brightness
+						SPI_masterTransmit(0x00); //No Blue
+						SPI_masterTransmit(0x00); //No green
+						SPI_masterTransmit(0x00); //No red
+					}
+					for (i = 0; i < 4; i++) {
+						SPI_masterTransmit(0xFF); //End frame
+					}
+					lightsOn = 0;
+					break;
+				} else {
+					//LED Pattern B
+					for (i = 0; i < 4; i++) {
+						SPI_masterTransmit(0x00); //Start frame
+					}
+					for (i = 0; i < 30; i+=3) {
+						SPI_masterTransmit(0xFF); //Full brightness
+						SPI_masterTransmit(0x00); //No Blue
+						SPI_masterTransmit(0xFF); //Green
+						SPI_masterTransmit(0x00); //No red
+					}
+					for (i = 0; i < 4; i++) {
+						SPI_masterTransmit(0xFF); //End frame
+					}
+					lightsOn = 1;
 				}
 				break;
 				case 'C':
-				//LED Pattern C
-				for (i = 0; i < 4; i++) {
+				if (lightsOn) { //Turn lights off
+					for (i = 0; i < 4; i++) {
 					SPI_masterTransmit(0x00); //Start frame
-				}
-				for (i = 0; i < 30; i+=3) {
-					SPI_masterTransmit(0xFF); //Full brightness
-					SPI_masterTransmit(0x00); //No blue
-					SPI_masterTransmit(0x00); //No green
-					SPI_masterTransmit(0xFF); //Red
-				}
-				for (i = 0; i < 4; i++) {
-					SPI_masterTransmit(0xFF); //End frame
+					}
+					for (i = 0; i < 30; i+=3) {
+						SPI_masterTransmit(0x00); //No brightness
+						SPI_masterTransmit(0x00); //No Blue
+						SPI_masterTransmit(0x00); //No green
+						SPI_masterTransmit(0x00); //No red
+					}
+					for (i = 0; i < 4; i++) {
+						SPI_masterTransmit(0xFF); //End frame
+					}
+					lightsOn = 0;
+					break;
+				} else {
+					//LED Pattern C
+					for (i = 0; i < 4; i++) {
+						SPI_masterTransmit(0x00); //Start frame
+					}
+					for (i = 0; i < 30; i+=3) {
+						SPI_masterTransmit(0xFF); //Full brightness
+						SPI_masterTransmit(0x00); //No blue
+						SPI_masterTransmit(0x00); //No green
+						SPI_masterTransmit(0xFF); //Red
+					}
+					for (i = 0; i < 4; i++) {
+						SPI_masterTransmit(0xFF); //End frame
+					}
+					lightsOn = 1;
 				}
 				break;
 				case 'P':
