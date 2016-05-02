@@ -24,6 +24,20 @@ int main(void)
 	PORTD |= (1<<7);
 
 	int lightsOn = 0;
+	//LED Pattern None
+	int i = 0;
+	for (i = 0; i < 4; i++) {
+		SPI_masterTransmit(0x00); //Start frame
+	}
+	for (i = 0; i < 30; i++) {
+		SPI_masterTransmit(0xFF); //Full brightness
+		SPI_masterTransmit(0x00); //Blue
+		SPI_masterTransmit(0x00); //No green
+		SPI_masterTransmit(0x00); //No red
+	}
+	for (i = 0; i < 4; i++) {
+		SPI_masterTransmit(0xFF); //End frame
+	}
 	
     while (1) 
     {
@@ -42,8 +56,8 @@ int main(void)
 					for (i = 0; i < 4; i++) {
 					SPI_masterTransmit(0x00); //Start frame
 					}
-					for (i = 0; i < 30; i+=3) {
-						SPI_masterTransmit(0x00); //No brightness
+					for (i = 0; i < 30; i++) {
+						SPI_masterTransmit(0xFF); //No brightness
 						SPI_masterTransmit(0x00); //No Blue
 						SPI_masterTransmit(0x00); //No green
 						SPI_masterTransmit(0x00); //No red
@@ -58,7 +72,7 @@ int main(void)
 					for (i = 0; i < 4; i++) {
 						SPI_masterTransmit(0x00); //Start frame
 					}
-					for (i = 0; i < 30; i+=3) {
+					for (i = 0; i < 9; i++) {
 						SPI_masterTransmit(0xFF); //Full brightness
 						SPI_masterTransmit(0xFF); //Blue
 						SPI_masterTransmit(0x00); //No green
@@ -75,8 +89,8 @@ int main(void)
 					for (i = 0; i < 4; i++) {
 					SPI_masterTransmit(0x00); //Start frame
 					}
-					for (i = 0; i < 30; i+=3) {
-						SPI_masterTransmit(0x00); //No brightness
+					for (i = 0; i < 30; i++) {
+						SPI_masterTransmit(0xFF); //No brightness
 						SPI_masterTransmit(0x00); //No Blue
 						SPI_masterTransmit(0x00); //No green
 						SPI_masterTransmit(0x00); //No red
@@ -91,7 +105,7 @@ int main(void)
 					for (i = 0; i < 4; i++) {
 						SPI_masterTransmit(0x00); //Start frame
 					}
-					for (i = 0; i < 30; i+=3) {
+					for (i = 0; i < 9; i++) {
 						SPI_masterTransmit(0xFF); //Full brightness
 						SPI_masterTransmit(0x00); //No Blue
 						SPI_masterTransmit(0xFF); //Green
@@ -108,8 +122,8 @@ int main(void)
 					for (i = 0; i < 4; i++) {
 					SPI_masterTransmit(0x00); //Start frame
 					}
-					for (i = 0; i < 30; i+=3) {
-						SPI_masterTransmit(0x00); //No brightness
+					for (i = 0; i < 30; i++) {
+						SPI_masterTransmit(0xFF); //No brightness
 						SPI_masterTransmit(0x00); //No Blue
 						SPI_masterTransmit(0x00); //No green
 						SPI_masterTransmit(0x00); //No red
@@ -124,7 +138,7 @@ int main(void)
 					for (i = 0; i < 4; i++) {
 						SPI_masterTransmit(0x00); //Start frame
 					}
-					for (i = 0; i < 30; i+=3) {
+					for (i = 0; i < 9; i++) {
 						SPI_masterTransmit(0xFF); //Full brightness
 						SPI_masterTransmit(0x00); //No blue
 						SPI_masterTransmit(0x00); //No green
@@ -134,21 +148,6 @@ int main(void)
 						SPI_masterTransmit(0xFF); //End frame
 					}
 					lightsOn = 1;
-				}
-				break;
-				case 'N':
-				//LED Pattern None
-				for (i = 0; i < 4; i++) {
-					SPI_masterTransmit(0x00); //Start frame
-				}
-				for (i = 0; i < 30; i+=3) {
-					SPI_masterTransmit(0x00); //Full brightness
-					SPI_masterTransmit(0x00); //Blue
-					SPI_masterTransmit(0x00); //No green
-					SPI_masterTransmit(0x00); //No red
-				}
-				for (i = 0; i < 4; i++) {
-					SPI_masterTransmit(0xFF); //End frame
 				}
 				break;
 					
