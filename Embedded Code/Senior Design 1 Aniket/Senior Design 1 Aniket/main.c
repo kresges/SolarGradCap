@@ -43,6 +43,7 @@ int main(void)
     {
 		uint8_t rx =  0;
 		uint8_t i = 0;
+		uint8_t count = 0;
 		if (uart_available() != 0) {
 			//UART DATA AVAILABLE
 			//GET UART DATA
@@ -72,12 +73,23 @@ int main(void)
 					for (i = 0; i < 4; i++) {
 						SPI_masterTransmit(0x00); //Start frame
 					}
-					for (i = 0; i < 9; i++) {
-						SPI_masterTransmit(0xFF); //Full brightness
-						SPI_masterTransmit(0xFF); //Blue
-						SPI_masterTransmit(0x00); //No green
-						SPI_masterTransmit(0x00); //No red
+					for (i = 0; i < 29; i++) {
+						count++;
+						if (count == 2) count = 0;
+						if (count == 0) {
+							SPI_masterTransmit(0xFF); //Full brightness
+							SPI_masterTransmit(0xFF); //Blue
+							SPI_masterTransmit(0x00); //No green
+							SPI_masterTransmit(0x00); //No red
+						}
+						else {
+							SPI_masterTransmit(0xFF); //Full brightness
+							SPI_masterTransmit(0x00); //No Blue
+							SPI_masterTransmit(0x00); //No green
+							SPI_masterTransmit(0x00); //No red
+						}
 					}
+					count = 0;
 					for (i = 0; i < 4; i++) {
 						SPI_masterTransmit(0xFF); //End frame
 					}
@@ -105,12 +117,23 @@ int main(void)
 					for (i = 0; i < 4; i++) {
 						SPI_masterTransmit(0x00); //Start frame
 					}
-					for (i = 0; i < 9; i++) {
-						SPI_masterTransmit(0xFF); //Full brightness
-						SPI_masterTransmit(0x00); //No Blue
-						SPI_masterTransmit(0xFF); //Green
-						SPI_masterTransmit(0x00); //No red
+					for (i = 0; i < 29; i++) {
+						count++;
+						if (count == 2) count = 0;
+						if (count == 0) {
+							SPI_masterTransmit(0xFF); //Full brightness
+							SPI_masterTransmit(0x00); //Blue
+							SPI_masterTransmit(0xFF); //No green
+							SPI_masterTransmit(0x00); //No red
+						}
+						else {
+							SPI_masterTransmit(0xFF); //Full brightness
+							SPI_masterTransmit(0x00); //No Blue
+							SPI_masterTransmit(0x00); //No green
+							SPI_masterTransmit(0x00); //No red
+						}
 					}
+					count = 0;
 					for (i = 0; i < 4; i++) {
 						SPI_masterTransmit(0xFF); //End frame
 					}
@@ -125,7 +148,7 @@ int main(void)
 					for (i = 0; i < 30; i++) {
 						SPI_masterTransmit(0xFF); //No brightness
 						SPI_masterTransmit(0x00); //No Blue
-						SPI_masterTransmit(0x00); //No green
+						SPI_masterTransmit(0x00); //Green
 						SPI_masterTransmit(0x00); //No red
 					}
 					for (i = 0; i < 4; i++) {
@@ -138,12 +161,23 @@ int main(void)
 					for (i = 0; i < 4; i++) {
 						SPI_masterTransmit(0x00); //Start frame
 					}
-					for (i = 0; i < 9; i++) {
-						SPI_masterTransmit(0xFF); //Full brightness
-						SPI_masterTransmit(0x00); //No blue
-						SPI_masterTransmit(0x00); //No green
-						SPI_masterTransmit(0xFF); //Red
+					for (i = 0; i < 29; i++) {
+						count++;
+						if (count == 2) count = 0;
+						if (count == 0) {
+							SPI_masterTransmit(0xFF); //Full brightness
+							SPI_masterTransmit(0x00); //No Blue
+							SPI_masterTransmit(0x00); //No green
+							SPI_masterTransmit(0xFF); //Red
+						}
+						else {
+							SPI_masterTransmit(0xFF); //Full brightness
+							SPI_masterTransmit(0x00); //No Blue
+							SPI_masterTransmit(0x00); //No green
+							SPI_masterTransmit(0x00); //No red
+						}
 					}
+					count = 0;
 					for (i = 0; i < 4; i++) {
 						SPI_masterTransmit(0xFF); //End frame
 					}
